@@ -1,0 +1,21 @@
+search:
+  home_base: "Greenville, NC 27858"
+  max_drive_minutes: 60
+rent:
+  min_monthly: 600
+  max_monthly: 1000
+site:
+  min_vehicle_display: 2
+  office_required: true
+  shared_lot: "last_resort"
+flood:
+  high_risk_zones: ["A", "AE", "AH", "AO", "AR", "A99", "V", "VE"]
+dealer:
+  license_status: "held"
+mail:
+  sender: "owner"
+  followup_days: 5
+  max_followups: 2
+  bounce_pause_pct: 5
+schedule:
+  cron: "0 6 * * *"

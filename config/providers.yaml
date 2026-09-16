@@ -1,0 +1,14 @@
+geocoder: census
+parcels: nc_onemap
+zoning: arcgis
+drivetime: openrouteservice
+traffic: ncdot
+flood: fema
+imagery: mapillary
+competitors: overpass
+tiles: protomaps
+crawling: anycrawl_local
+social: reddit
+email: gmail
+llm: claude_agent
+paid_enabled: false

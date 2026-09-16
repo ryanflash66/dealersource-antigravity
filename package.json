@@ -1,0 +1,14 @@
+{
+  "name": "dealersource",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "test": "npm test --workspaces --if-present",
+    "pipeline": "npm run pipeline --workspace=packages/pipeline --",
+    "dashboard:dev": "npm run dev --workspace=apps/dashboard"
+  }
+}

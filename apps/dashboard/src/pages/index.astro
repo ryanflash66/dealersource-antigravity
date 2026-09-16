@@ -1,0 +1,53 @@
+---
+import fs from 'fs';
+import path from 'path';
+
+// For offline mode, we read from the pipeline's output JSON
+const resultsFile = path.resolve('../../tests/fixtures/output.json');
+let sites = [];
+if (fs.existsSync(resultsFile)) {
+  sites = JSON.parse(fs.readFileSync(resultsFile, 'utf8'));
+}
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>DealerSource Dashboard</title>
+    <style>
+      body { font-family: sans-serif; padding: 2rem; max-width: 1000px; margin: auto; }
+      .site-card { border: 1px solid #ccc; padding: 1rem; margin-bottom: 1rem; border-radius: 8px; }
+      .gates { display: flex; gap: 1rem; }
+      .gate { padding: 0.5rem; background: #e0f7fa; border-radius: 4px; font-size: 0.9em; }
+    </style>
+  </head>
+  <body>
+    <h1>DealerSource Shortlist</h1>
+    <p>Ranked viable sites for Eastern NC.</p>
+    
+    {sites.length === 0 ? (
+      <p>No sites discovered yet. Run the pipeline.</p>
+    ) : (
+      sites.map(site => (
+        <div class="site-card">
+          <h2>{site.address} (Score: {site.score})</h2>
+          <div class="gates">
+            <div class="gate">
+              <strong>Zoning:</strong> {site.gates.zoning.passed ? '✅' : '❌'} <br/>
+              Source: {site.gates.zoning.source}
+            </div>
+            <div class="gate">
+              <strong>Rent:</strong> {site.gates.rent.passed ? '✅' : '❌'} <br/>
+              Source: {site.gates.rent.source}
+            </div>
+            <div class="gate">
+              <strong>Flood:</strong> {site.gates.flood.passed ? '✅' : '❌'} <br/>
+              Source: {site.gates.flood.source}
+            </div>
+          </div>
+        </div>
+      ))
+    )}
+  </body>
+</html>
