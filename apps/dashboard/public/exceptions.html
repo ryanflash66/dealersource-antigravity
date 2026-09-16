@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dealersource Exceptions (paused)</title>
+<meta name="description" content="Static design template page for the dealersource dashboard: Exceptions (paused). Sample data only.">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../dashboard.css">
+</head>
+<body>
+<div class="ds-root" style="min-height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; background: var(--bg); color: var(--fg);">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <!-- dealersource icon sprite. 24px grid, stroke 1.75, currentColor.
+       Inline this whole file at the top of <body>, then use
+       <svg class="i"><use href="#i-check"/></svg>. -->
+  <defs>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-stale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M6 18L18 6"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5L2.5 20h19L12 3.5z"/><path d="M12 9.5v4.5M12 17.2v.3"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M10 9v6M14 9v6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13.5V19a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5.5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.7-6.5-11a6.5 6.5 0 0 1 13 0c0 5.3-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.25"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-4l2.2-5.2A1.5 1.5 0 0 1 7.6 6h8.8a1.5 1.5 0 0 1 1.4.8L20 12v4"/><path d="M3 12h18"/><circle cx="7.5" cy="16.5" r="1.75"/><circle cx="16.5" cy="16.5" r="1.75"/></symbol>
+    <symbol id="i-shared" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M12 5.5v13"/><path d="M7 12h2M15 12h2"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10l5 5 5-5"/></symbol>
+    <symbol id="i-sort" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5v14M8 19l-3-3M8 19l3-3"/><path d="M16 19V5M16 5l-3 3M16 5l3 3"/></symbol>
+    <symbol id="i-sort-desc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M12 19l-4-4M12 19l4-4"/></symbol>
+    <symbol id="i-sort-asc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M12 5L8 9M12 5l4 4"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M4 7l8 6 8-6"/></symbol>
+    <symbol id="i-layer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l8 4.5-8 4.5-8-4.5L12 4z"/><path d="M4 13l8 4.5 8-4.5"/></symbol>
+    <symbol id="i-listing" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="3.5" width="15" height="17" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="1.5"/><circle cx="9" cy="9.5" r="1.5"/><path d="M20 15l-4.5-4.5L8 18"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8v.3"/></symbol>
+    <symbol id="i-ban" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-14.2 5M4 12a8 8 0 0 1 14.2-5"/><path d="M18 4v3.5h-3.5M6 20v-3.5h3.5"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7"/><path d="M6 10v9.5h12V10"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5s6 6.4 6 10.5a6 6 0 0 1-12 0c0-4.1 6-10.5 6-10.5z"/></symbol>
+    <symbol id="i-dollar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v17"/><path d="M16 7.5H10a2.5 2.5 0 0 0 0 5h4a2.5 2.5 0 0 1 0 5H8"/></symbol>
+    <symbol id="i-zoning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11"/><path d="M4 20h16M9 20v-5h6v5"/></symbol>
+    <symbol id="i-external-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h10v10M19 5L5 19"/></symbol>
+    <symbol id="i-git" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="8" r="2"/><path d="M6 7v10M18 10c0 4-6 3-9 6"/></symbol>
+  </defs>
+</svg>
+
+<header class="topbar"><a class="brand" href="Main.dc.html"><span class="brand-mark" aria-hidden="true"></span>dealersource</a><div class="run-status"><span class="dot dot-paused" aria-hidden="true"></span><span>Last run <span class="mono">2026-09-16 09:52</span> · Paused</span></div><nav aria-label="Views"><ul class="nav"><li><a href="Main.dc.html">Shortlist</a></li><li><a href="Pipeline.dc.html">Pipeline</a></li><li><a href="Exceptions.dc.html" aria-current="page">Exceptions<span class="count is-alert">2</span></a></li><li><a href="Config.dc.html">Config</a></li></ul></nav><button class="theme-toggle" type="button" aria-label="Toggle light or dark theme"><svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg></button></header>
+<div class="banner-stack" style="max-width:none;margin:0"><div class="banner banner-paused" role="alert"><svg class="i" aria-hidden="true"><use href="#i-pause"/></svg><div class="b-title">Sending paused: Email bounces: 3 consecutive hard bounces</div><div class="b-meta"><span>Since <span class="mono">2026-09-16 09:48</span> (paused 4 min before run end)</span><span>planning@tarboro-nc.example rejected message (550 5.1.1 user unknown). Outreach stops until a human confirms the address.</span><span>Resume: fix the address in the case, then re-run. The dashboard cannot resume it.</span></div></div><div class="banner banner-warn" role="status"><svg class="i" aria-hidden="true"><use href="#i-alert"/></svg><div class="b-title">Provider error: OSM Overpass returned HTTP 429 (quota)</div><div class="b-meta"><span>poi layer · 2 of 31 sites left un-enriched (<span class="mono">S-0538</span>, <span class="mono">S-0541</span>)</span><span>Retries next run · <a href="Config.dc.html">provider config</a></span></div></div></div>
+<main class="page" id="main">
+  <div class="page-head"><h1>Exceptions</h1><span class="sub">what the automation could not do this run</span></div>
+  <section class="section" aria-labelledby="h-failed" style="margin-top:0">
+    <div class="section-head"><h2 id="h-failed">Sources that failed to fetch</h2><span class="sub">3</span></div>
+    <ul class="xlist"><li><span class="k">Pitt County GIS zoning layer<span class="sub">PITT-4691-07-2201 (S-0527)</span></span><span class="r">timeout after 30 s, 3 retries</span><span class="m">2026-09-16 09:43Z</span></li><li><span class="k">LoopNet listing LN-88512<span class="sub">S-0540</span></span><span class="r">HTTP 403 (bot challenge)</span><span class="m">2026-09-16 09:45Z</span></li><li><span class="k">OSM Overpass POI query<span class="sub">S-0538, S-0541</span></span><span class="r">HTTP 429 quota exceeded</span><span class="m">2026-09-16 09:47Z</span></li></ul>
+  </section>
+  <section class="section" aria-labelledby="h-tos">
+    <div class="section-head"><h2 id="h-tos">Sources excluded by terms of service</h2><span class="sub">3 · never fetched, by policy</span></div>
+    <ul class="xlist"><li><span class="k">Zillow</span><span class="r">Terms prohibit automated access (Section 6). Listings not fetched; 4 candidate sites left in &#x27;discovered&#x27;.</span><span class="m"><svg class="i i-16" aria-hidden="true"><use href="#i-ban"/></svg></span></li><li><span class="k">Craigslist</span><span class="r">robots.txt disallows the /search path; skipped by the crawler.</span><span class="m"><svg class="i i-16" aria-hidden="true"><use href="#i-ban"/></svg></span></li><li><span class="k">Facebook Marketplace</span><span class="r">Login wall plus terms prohibiting scraping. Not fetched.</span><span class="m"><svg class="i i-16" aria-hidden="true"><use href="#i-ban"/></svg></span></li></ul>
+  </section>
+  <section class="section" aria-labelledby="h-exp">
+    <div class="section-head"><h2 id="h-exp">Evidence expiring within 7 days</h2><span class="sub">1 expiring · 1 already expired</span></div>
+    <ul class="xlist"><li><span class="k">2611 NC-11 S<span class="sub">rent: written quote · <span class="mono">E-1242</span></span></span><span class="r">$800 / mo, 0.6 ac, road frontage 140 ft · Email reply · <a class="link-ext" href="mailto:owner@nc11-lots.example" target="_blank" rel="noopener">nc11-lots.example<svg class="i" aria-hidden="true"><use href="#i-external-small"/></svg></a></span><span class="m warn"><svg class="i i-16" aria-hidden="true"><use href="#i-alert"/></svg> expires 2026-09-20 (4 d)</span></li><li><span class="k">1500 N Greene St<span class="sub">rent: written quote · <span class="mono">E-1222</span> · gate now pending</span></span><span class="r"><s>$900 / mo (quote from 2026-08-11)</s> · Email reply</span><span class="m stale">expired 2026-09-10</span></li></ul>
+  </section>
+  <section class="section" aria-labelledby="h-drop">
+    <div class="section-head"><h2 id="h-drop">Sites dropped since last run</h2><span class="sub">2 · compared with <span class="mono">run_20260915_0940</span></span></div>
+    <ul class="xlist"><li><span class="k">2210 Greenville Blvd SE<span class="sub">Greenville, NC · <span class="mono">S-0402</span></span></span><span class="r">flood gate flipped to fail: FEMA layer now returns Zone AE</span><span class="m">was rank 3</span></li><li><span class="k">800 W New Bern Rd<span class="sub">Kinston, NC · <span class="mono">S-0298</span></span></span><span class="r">listing removed; rent evidence withdrawn, gate pending</span><span class="m">was rank 7</span></li></ul>
+  </section>
+</main>
+<footer class="footer"><a class="link-ext" href="https://github.com/ryanflash66/dealersource" target="_blank" rel="noopener"><svg class="i i-16" aria-hidden="true"><use href="#i-git"/></svg>ryanflash66/dealersource</a><span>report.json</span><span class="mono">run_20260916_0941</span></footer>
+</div>
+</body>
+</html>

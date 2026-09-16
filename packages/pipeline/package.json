@@ -6,11 +6,22 @@
     "pipeline": "tsx src/index.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.126.0",
+    "@supabase/supabase-js": "^2.116.0",
+    "cheerio": "^1.2.0",
+    "dotenv": "^17.4.2",
+    "imap-simple": "^5.1.0",
+    "nodemailer": "^10.0.10",
+    "turndown": "^7.2.4",
     "yaml": "^2.3.0"
   },
   "devDependencies": {
-    "jest": "^29.7.0",
+    "@types/cheerio": "^0.22.35",
+    "@types/imap-simple": "^4.2.10",
     "@types/jest": "^29.5.0",
+    "@types/nodemailer": "^8.0.2",
+    "@types/turndown": "^5.0.6",
+    "jest": "^29.7.0",
     "ts-jest": "^29.1.0",
     "tsx": "^4.0.0"
   }
