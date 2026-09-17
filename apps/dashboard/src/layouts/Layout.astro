@@ -1,0 +1,70 @@
+---
+export interface Props {
+  title: string;
+  gridRows?: string;
+  activePath?: string;
+  bodyClass?: string;
+}
+
+const { title, gridRows = "56px 1fr", activePath = "/", bodyClass = "app" } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  <link rel="stylesheet" href="/tokens.css">
+  <link rel="stylesheet" href="/dashboard.css">
+</head>
+<body>
+  <div class={bodyClass} style={`width: 100%; max-width: 1440px; margin: 0 auto; height: 100vh; min-height: 720px; display: grid; grid-template-rows: ${gridRows};`}>
+    <div class="sc-host" data-sc-name="DsHeader">
+      <header style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 56px; box-sizing: border-box; padding: 0px 24px; border-bottom: 1px solid var(--border); background: color-mix(in oklab, var(--background) 88%, transparent); color: var(--foreground); font-family: var(--font-sans); font-size: 14px;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div class="sc-host-x" style="display: contents;">
+            <span aria-hidden="true" style="display: inline-grid; grid-template-columns: repeat(3, 2px); gap: 2px;">
+              <span style="width: 2px; height: 2px; border-radius: 50%; background: oklch(0.52 0.26 255);"></span>
+              <span style="width: 2px; height: 2px; border-radius: 50%; background: color-mix(in oklch, var(--foreground) 16%, transparent);"></span>
+              <span style="width: 2px; height: 2px; border-radius: 50%; background: color-mix(in oklch, var(--foreground) 16%, transparent);"></span>
+              <span style="width: 2px; height: 2px; border-radius: 50%; background: oklch(0.57 0.25 245);"></span>
+              <span style="width: 2px; height: 2px; border-radius: 50%; background: color-mix(in oklch, var(--foreground) 16%, transparent);"></span>
+              <span style="width: 2px; height: 2px; border-radius: 50%; background: color-mix(in oklch, var(--foreground) 16%, transparent);"></span>
+              <span style="width: 2px; height: 2px; border-radius: 50%; background: oklch(0.62 0.23 232);"></span>
+              <span style="width: 2px; height: 2px; border-radius: 50%; background: oklch(0.67 0.2 218);"></span>
+              <span style="width: 2px; height: 2px; border-radius: 50%; background: oklch(0.72 0.18 205);"></span>
+            </span>
+          </div>
+          <span style="font-weight: 600; letter-spacing: -0.01em;">dealersource</span>
+          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--muted-foreground); padding: 2px 8px; border: 1px solid var(--border); border-radius: 999px; white-space: nowrap;">Report 2026-09-16</span>
+        </div>
+        <nav style="display: flex; gap: 2px; padding: 3px; border: 1px solid var(--border); border-radius: 999px; background: color-mix(in oklab, var(--card) 70%, transparent);">
+          <a href="/" style={`text-decoration: none; position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; font-size: 13px; white-space: nowrap; ${activePath === '/' ? 'background: var(--wash-primary); color: var(--nav-active, var(--primary-hover)); font-weight: 600;' : 'background: transparent; color: var(--muted-foreground); font-weight: 400;'}`}>
+            <span class="sc-interp">Shortlist</span>
+            {activePath === '/' ? <span style="position: absolute; top: -4px; left: 50%; transform: translateX(-50%); width: 20px; height: 2px; border-radius: 2px; background: var(--primary);"></span> : null}
+          </a>
+          <a href="/pipeline" style={`text-decoration: none; position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; font-size: 13px; white-space: nowrap; ${activePath === '/pipeline' ? 'background: var(--wash-primary); color: var(--nav-active, var(--primary-hover)); font-weight: 600;' : 'background: transparent; color: var(--muted-foreground); font-weight: 400;'}`}>
+            <span class="sc-interp">Pipeline</span>
+            {activePath === '/pipeline' ? <span style="position: absolute; top: -4px; left: 50%; transform: translateX(-50%); width: 20px; height: 2px; border-radius: 2px; background: var(--primary);"></span> : null}
+          </a>
+          <a href="/exceptions" style={`text-decoration: none; position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; font-size: 13px; white-space: nowrap; ${activePath === '/exceptions' ? 'background: var(--wash-primary); color: var(--nav-active, var(--primary-hover)); font-weight: 600;' : 'background: transparent; color: var(--muted-foreground); font-weight: 400;'}`}>
+            <span class="sc-interp">Exceptions</span>
+            {activePath === '/exceptions' ? <span style="position: absolute; top: -4px; left: 50%; transform: translateX(-50%); width: 20px; height: 2px; border-radius: 2px; background: var(--primary);"></span> : null}
+          </a>
+          <a href="/config" style={`text-decoration: none; position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; font-size: 13px; white-space: nowrap; ${activePath === '/config' ? 'background: var(--wash-primary); color: var(--nav-active, var(--primary-hover)); font-weight: 600;' : 'background: transparent; color: var(--muted-foreground); font-weight: 400;'}`}>
+            <span class="sc-interp">Configuration</span>
+            {activePath === '/config' ? <span style="position: absolute; top: -4px; left: 50%; transform: translateX(-50%); width: 20px; height: 2px; border-radius: 2px; background: var(--primary);"></span> : null}
+          </a>
+        </nav>
+        <div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; font-size: 13px; color: var(--muted-foreground);">
+          <span style="display: inline-flex; align-items: center; gap: 6px; color: oklch(0.45 0.12 155); font-weight: 500;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Running
+          </span>
+          <span style="white-space: nowrap;">Last run 06:00 ET</span>
+        </div>
+      </header>
+    </div>
+    <slot />
+  </div>
+</body>
+</html>
