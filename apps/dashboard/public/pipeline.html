@@ -4,76 +4,304 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>dealersource Pipeline</title>
-<meta name="description" content="Static design template page for the dealersource dashboard: Pipeline. Sample data only.">
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="description" content="Static design template page for the dealersource dashboard: 3f Pipeline, light. Sample data only.">
 <link rel="stylesheet" href="../tokens.css">
 <link rel="stylesheet" href="../dashboard.css">
 </head>
 <body>
-<div class="ds-root" style="min-height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; background: var(--bg); color: var(--fg);">
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-  <!-- dealersource icon sprite. 24px grid, stroke 1.75, currentColor.
-       Inline this whole file at the top of <body>, then use
-       <svg class="i"><use href="#i-check"/></svg>. -->
-  <defs>
-    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
-    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
-    <symbol id="i-stale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M6 18L18 6"/></symbol>
-    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5L2.5 20h19L12 3.5z"/><path d="M12 9.5v4.5M12 17.2v.3"/></symbol>
-    <symbol id="i-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M10 9v6M14 9v6"/></symbol>
-    <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13.5V19a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5.5"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.7-6.5-11a6.5 6.5 0 0 1 13 0c0 5.3-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.25"/></symbol>
-    <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-4l2.2-5.2A1.5 1.5 0 0 1 7.6 6h8.8a1.5 1.5 0 0 1 1.4.8L20 12v4"/><path d="M3 12h18"/><circle cx="7.5" cy="16.5" r="1.75"/><circle cx="16.5" cy="16.5" r="1.75"/></symbol>
-    <symbol id="i-shared" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M12 5.5v13"/><path d="M7 12h2M15 12h2"/></symbol>
-    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></symbol>
-    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
-    <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10l5 5 5-5"/></symbol>
-    <symbol id="i-sort" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5v14M8 19l-3-3M8 19l3-3"/><path d="M16 19V5M16 5l-3 3M16 5l3 3"/></symbol>
-    <symbol id="i-sort-desc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M12 19l-4-4M12 19l4-4"/></symbol>
-    <symbol id="i-sort-asc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M12 5L8 9M12 5l4 4"/></symbol>
-    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M4 7l8 6 8-6"/></symbol>
-    <symbol id="i-layer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l8 4.5-8 4.5-8-4.5L12 4z"/><path d="M4 13l8 4.5 8-4.5"/></symbol>
-    <symbol id="i-listing" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="3.5" width="15" height="17" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
-    <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="1.5"/><circle cx="9" cy="9.5" r="1.5"/><path d="M20 15l-4.5-4.5L8 18"/></symbol>
-    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8v.3"/></symbol>
-    <symbol id="i-ban" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></symbol>
-    <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-14.2 5M4 12a8 8 0 0 1 14.2-5"/><path d="M18 4v3.5h-3.5M6 20v-3.5h3.5"/></symbol>
-    <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7"/><path d="M6 10v9.5h12V10"/></symbol>
-    <symbol id="i-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5s6 6.4 6 10.5a6 6 0 0 1-12 0c0-4.1 6-10.5 6-10.5z"/></symbol>
-    <symbol id="i-dollar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v17"/><path d="M16 7.5H10a2.5 2.5 0 0 0 0 5h4a2.5 2.5 0 0 1 0 5H8"/></symbol>
-    <symbol id="i-zoning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11"/><path d="M4 20h16M9 20v-5h6v5"/></symbol>
-    <symbol id="i-external-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h10v10M19 5L5 19"/></symbol>
-    <symbol id="i-git" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="8" r="2"/><path d="M6 7v10M18 10c0 4-6 3-9 6"/></symbol>
-  </defs>
-</svg>
-
-<header class="topbar"><a class="brand" href="Main.dc.html"><span class="brand-mark" aria-hidden="true"></span>dealersource</a><div class="run-status"><span class="dot dot-paused" aria-hidden="true"></span><span>Last run <span class="mono">2026-09-16 09:52</span> · Paused</span></div><nav aria-label="Views"><ul class="nav"><li><a href="Main.dc.html">Shortlist</a></li><li><a href="Pipeline.dc.html" aria-current="page">Pipeline</a></li><li><a href="Exceptions.dc.html">Exceptions<span class="count is-alert">2</span></a></li><li><a href="Config.dc.html">Config</a></li></ul></nav><button class="theme-toggle" type="button" aria-label="Toggle light or dark theme"><svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg></button></header><div class="paused-strip" role="status"><svg class="i i-16" aria-hidden="true"><use href="#i-pause"/></svg><span>Sending paused since <span class="mono">2026-09-16 09:48</span>: Email bounces: 3 consecutive hard bounces.</span><a href="Exceptions.dc.html">See exceptions</a></div>
-<main class="page" id="main">
-  <div class="page-head"><h1>Pipeline</h1><span class="sub">143 sites in this run · by current stage</span></div>
-  <ol class="stages" aria-label="Sites by stage"><li class="stage"><div class="n">9</div><div class="l">Discovered</div><div class="d">listing or parcel seen, not yet geocoded</div></li><li class="stage"><div class="n">14</div><div class="l">Resolved</div><div class="d">address, parcel and drive time known</div></li><li class="stage"><div class="n">31</div><div class="l">Enriched</div><div class="d">traffic, visibility, POIs fetched</div></li><li class="stage"><div class="n">27</div><div class="l">Verifying</div><div class="d">one or more gates pending; cases open</div></li><li class="stage is-active"><div class="n">8</div><div class="l">Scored</div><div class="d">all three gates pass; on the shortlist</div></li><li class="stage is-excluded"><div class="n">54</div><div class="l">Excluded</div><div class="d">a gate failed or outside search area</div></li></ol>
-  <section class="section" aria-labelledby="h-cases">
-    <div class="section-head"><h2 id="h-cases">Open cases</h2><span class="sub">9 open · sorted by age, oldest first · "no reply" is not approval</span></div>
-    <div class="table-wrap"><table class="table stack" id="cases">
-      <thead><tr>
-        <th scope="col">Site</th><th scope="col">Case</th><th scope="col">Recipient</th><th scope="col">Sent</th>
-        <th scope="col" class="num">Follow-ups</th>
-        <th scope="col" class="num" aria-sort="descending"><button type="button" class="sort" data-sort="age" aria-label="Sort by age">Age <svg class="i i-sort" aria-hidden="true"><use href="#i-sort-desc"/></svg></button></th>
-        <th scope="col">Status</th><th scope="col">Next action</th>
-      </tr></thead>
-      <tbody><tr><td data-label="Site"><span class="addr">2900 US-70 W</span><span class="sub">Goldsboro, NC · <span class="mono">S-0507</span></span></td><td data-label="Case">rent</td><td data-label="Recipient" class="mono">goldsboro-lots.example</td><td data-label="Sent" class="mono">2026-08-30</td><td data-label="Follow-ups" class="num">2</td><td data-label="Age" class="num age-old" data-age="17">17 d</td><td data-label="Status"><span class="case-status case-awaiting"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>awaiting reply</span></td><td data-label="Next" class="next">Close case 2026-09-20 if no reply (3 follow-ups)</td></tr><tr><td data-label="Site"><span class="addr">500 E New Bern Rd</span><span class="sub">Kinston, NC · <span class="mono">S-0503</span></span></td><td data-label="Case">rent</td><td data-label="Recipient" class="mono">kinstonrealty.example</td><td data-label="Sent" class="mono">2026-09-01</td><td data-label="Follow-ups" class="num">3</td><td data-label="Age" class="num age-old" data-age="15">15 d</td><td data-label="Status"><span class="case-status case-followup"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>no reply, closing</span></td><td data-label="Next" class="next">Close 2026-09-17; site stays pending, not approved</td></tr><tr><td data-label="Site"><span class="addr">700 W Wilson St</span><span class="sub">Tarboro, NC · <span class="mono">S-0511</span></span></td><td data-label="Case">zoning</td><td data-label="Recipient" class="mono">tarboro-nc.example</td><td data-label="Sent" class="mono">2026-09-04</td><td data-label="Follow-ups" class="num">2</td><td data-label="Age" class="num age-old" data-age="12">12 d</td><td data-label="Status"><span class="case-status case-bounced"><svg class="i" aria-hidden="true"><use href="#i-alert"/></svg>bounced</span></td><td data-label="Next" class="next">Human: confirm planning dept address, then resume</td></tr><tr><td data-label="Site"><span class="addr">2100 N Herritage St</span><span class="sub">Kinston, NC · <span class="mono">S-0389</span></span></td><td data-label="Case">space</td><td data-label="Recipient" class="mono">herritage-lots.example</td><td data-label="Sent" class="mono">2026-09-07</td><td data-label="Follow-ups" class="num">1</td><td data-label="Age" class="num" data-age="9">9 d</td><td data-label="Status"><span class="case-status case-awaiting"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>awaiting reply</span></td><td data-label="Next" class="next">Follow-up 2 due 2026-09-17</td></tr><tr><td data-label="Site"><span class="addr">1500 N Greene St</span><span class="sub">Greenville, NC · <span class="mono">S-0433</span></span></td><td data-label="Case">rent</td><td data-label="Recipient" class="mono">greeneproperties.example</td><td data-label="Sent" class="mono">2026-09-10</td><td data-label="Follow-ups" class="num">1</td><td data-label="Age" class="num" data-age="6">6 d</td><td data-label="Status"><span class="case-status case-awaiting"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>awaiting reply</span></td><td data-label="Next" class="next">Follow-up 2 due 2026-09-17</td></tr><tr><td data-label="Site"><span class="addr">1400 N Berkeley Blvd</span><span class="sub">Goldsboro, NC · <span class="mono">S-0531</span></span></td><td data-label="Case">zoning</td><td data-label="Recipient" class="mono">waynegov.example</td><td data-label="Sent" class="mono">2026-09-11</td><td data-label="Follow-ups" class="num">1</td><td data-label="Age" class="num" data-age="5">5 d</td><td data-label="Status"><span class="case-status case-replied"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>replied</span></td><td data-label="Next" class="next">Parse reply, attach as evidence (queued)</td></tr><tr><td data-label="Site"><span class="addr">1310 Wilson St</span><span class="sub">Wilson, NC · <span class="mono">S-0522</span></span></td><td data-label="Case">rent</td><td data-label="Recipient" class="mono">wilsonstreet-cre.example</td><td data-label="Sent" class="mono">2026-09-12</td><td data-label="Follow-ups" class="num">0</td><td data-label="Age" class="num" data-age="4">4 d</td><td data-label="Status"><span class="case-status case-awaiting"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>awaiting reply</span></td><td data-label="Next" class="next">Follow-up 1 due 2026-09-19</td></tr><tr><td data-label="Site"><span class="addr">312 SE 2nd St</span><span class="sub">Snow Hill, NC · <span class="mono">S-0539</span></span></td><td data-label="Case">zoning</td><td data-label="Recipient" class="mono">greenecountync.gov</td><td data-label="Sent" class="mono">2026-09-13</td><td data-label="Follow-ups" class="num">0</td><td data-label="Age" class="num" data-age="3">3 d</td><td data-label="Status"><span class="case-status case-awaiting"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>awaiting reply</span></td><td data-label="Next" class="next">Follow-up 1 due 2026-09-20</td></tr><tr><td data-label="Site"><span class="addr">210 N Greene St</span><span class="sub">Snow Hill, NC · <span class="mono">S-0544</span></span></td><td data-label="Case">space</td><td data-label="Recipient" class="mono">snowhill-auto.example</td><td data-label="Sent" class="mono">2026-09-15</td><td data-label="Follow-ups" class="num">0</td><td data-label="Age" class="num" data-age="1">1 d</td><td data-label="Status"><span class="case-status case-awaiting"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>awaiting reply</span></td><td data-label="Next" class="next">Follow-up 1 due 2026-09-22</td></tr></tbody>
-    </table></div>
-  </section>
-  <section class="section section-quiet" aria-labelledby="h-msgs">
-    <div class="section-head"><h2 id="h-msgs">Messages sent this run</h2><span class="sub">4 · from report.messages[]</span></div>
-    <div class="table-wrap"><table class="table stack">
-      <thead><tr><th scope="col">Site</th><th scope="col">Case</th><th scope="col">To</th><th scope="col">Subject</th><th scope="col">Sent</th><th scope="col">Template</th></tr></thead>
-      <tbody><tr><td data-label="Site"><span class="addr">1310 Wilson St</span><span class="sub mono">S-0522</span></td><td data-label="Case">rent</td><td data-label="To" class="mono">wilsonstreet-cre.example</td><td data-label="Subject">Lease inquiry: 1310 Wilson St lot</td><td data-label="Sent" class="mono">2026-09-16 09:44</td><td data-label="Template" class="mono">rent_v3</td></tr><tr><td data-label="Site"><span class="addr">312 SE 2nd St</span><span class="sub mono">S-0539</span></td><td data-label="Case">zoning</td><td data-label="To" class="mono">greenecountync.gov</td><td data-label="Subject">Zoning confirmation request: parcel 3712-88-0041</td><td data-label="Sent" class="mono">2026-09-16 09:44</td><td data-label="Template" class="mono">zoning_v2</td></tr><tr><td data-label="Site"><span class="addr">210 N Greene St</span><span class="sub mono">S-0544</span></td><td data-label="Case">space</td><td data-label="To" class="mono">snowhill-auto.example</td><td data-label="Subject">Display space availability: 210 N Greene St</td><td data-label="Sent" class="mono">2026-09-16 09:46</td><td data-label="Template" class="mono">space_v1</td></tr><tr><td data-label="Site"><span class="addr">700 W Wilson St</span><span class="sub mono">S-0511</span></td><td data-label="Case">zoning</td><td data-label="To" class="mono">tarboro-nc.example</td><td data-label="Subject">Follow-up 2: zoning confirmation, 700 W Wilson St</td><td data-label="Sent" class="mono">2026-09-16 09:48</td><td data-label="Template" class="mono">zoning_fu_v2</td></tr></tbody>
-    </table></div>
-  </section>
-</main>
-
-<footer class="footer"><a class="link-ext" href="https://github.com/ryanflash66/dealersource" target="_blank" rel="noopener"><svg class="i i-16" aria-hidden="true"><use href="#i-git"/></svg>ryanflash66/dealersource</a><span>report.json</span><span class="mono">run_20260916_0941</span></footer>
-</div>
+<div class="dv-card app " style="width: 1440px; height: 900px; display: grid; grid-template-rows: 56px 1fr;">
+    <div class="sc-host" data-sc-name="DsHeader"><header style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 56px; box-sizing: border-box; padding: 0px 24px; border-bottom: 1px solid var(--border); background: color-mix(in oklab, var(--background) 88%, transparent); color: var(--foreground); font-family: var(--font-sans); font-size: 14px;">
+  <div style="display: flex; align-items: center; gap: 14px;">
+    <div class="sc-host-x" style="display: contents;"><span aria-hidden="true" style="display: inline-grid; grid-template-columns: repeat(3, 2px); gap: 2px;"><span style="width: 2px; height: 2px; border-radius: 50%; background: oklch(0.52 0.26 255);"></span><span style="width: 2px; height: 2px; border-radius: 50%; background: color-mix(in oklch, var(--foreground) 16%, transparent);"></span><span style="width: 2px; height: 2px; border-radius: 50%; background: color-mix(in oklch, var(--foreground) 16%, transparent);"></span><span style="width: 2px; height: 2px; border-radius: 50%; background: oklch(0.57 0.25 245);"></span><span style="width: 2px; height: 2px; border-radius: 50%; background: color-mix(in oklch, var(--foreground) 16%, transparent);"></span><span style="width: 2px; height: 2px; border-radius: 50%; background: color-mix(in oklch, var(--foreground) 16%, transparent);"></span><span style="width: 2px; height: 2px; border-radius: 50%; background: oklch(0.62 0.23 232);"></span><span style="width: 2px; height: 2px; border-radius: 50%; background: oklch(0.67 0.2 218);"></span><span style="width: 2px; height: 2px; border-radius: 50%; background: oklch(0.72 0.18 205);"></span></span></div>
+    <span style="font-weight: 600; letter-spacing: -0.01em;">dealersource</span>
+    <span style="font-family: var(--font-mono); font-size: 11px; color: var(--muted-foreground); padding: 2px 8px; border: 1px solid var(--border); border-radius: 999px; white-space: nowrap;">Report 2026-09-16</span>
+  </div>
+  <nav style="display: flex; gap: 2px; padding: 3px; border: 1px solid var(--border); border-radius: 999px; background: color-mix(in oklab, var(--card) 70%, transparent);">
+    
+      <span style="position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; font-size: 13px; white-space: nowrap; background: transparent; color: var(--muted-foreground); font-weight: 400;"><span class="sc-interp">Shortlist</span></span>
+    
+      <span style="position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; font-size: 13px; white-space: nowrap; background: var(--wash-primary); color: var(--nav-active, var(--primary-hover)); font-weight: 600;"><span class="sc-interp">Pipeline</span><span style="position: absolute; top: -4px; left: 50%; transform: translateX(-50%); width: 20px; height: 2px; border-radius: 2px; background: var(--primary);"></span></span>
+    
+      <span style="position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; font-size: 13px; white-space: nowrap; background: transparent; color: var(--muted-foreground); font-weight: 400;"><span class="sc-interp">Exceptions</span></span>
+    
+      <span style="position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; font-size: 13px; white-space: nowrap; background: transparent; color: var(--muted-foreground); font-weight: 400;"><span class="sc-interp">Configuration</span></span>
+    
+  </nav>
+  <div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; font-size: 13px; color: var(--muted-foreground);">
+    <span style="display: inline-flex; align-items: center; gap: 6px; color: oklch(0.45 0.12 155); font-weight: 500;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Running</span>
+    
+    <span style="white-space: nowrap;">Last run 06:00 ET</span>
+  </div></header></div>
+    <div style="overflow: hidden; padding: 24px 24px 0px; display: grid; grid-template-columns: 1fr 480px; gap: 24px; min-height: 0px;">
+      <div style="display: flex; flex-direction: column; gap: 20px; min-width: 0px;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
+            <h1 style="margin: 0px; font-size: 20px; font-weight: 600; letter-spacing: -0.02em;">Where every site sits</h1>
+            <span style="font-size: 12.5px; color: var(--muted-foreground);">11 listings merged into 9 sites this run</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px;">
+            
+              <div style="border-top: 3px solid oklch(0.8 0.01 252); padding-top: 8px;">
+                <div style="font-size: 12.5px; font-weight: 500; color: var(--muted-foreground);"><span class="sc-interp">Discovered</span></div>
+                <div style="font-family: var(--font-mono); font-size: 24px; line-height: 1.2;"><span class="sc-interp">11</span></div>
+                <div style="font-size: 11.5px; color: var(--muted-foreground);"><span class="sc-interp">listings from 7 sources</span></div>
+              </div>
+            
+              <div style="border-top: 3px solid oklch(0.7 0.17 250); padding-top: 8px;">
+                <div style="font-size: 12.5px; font-weight: 500; color: var(--muted-foreground);"><span class="sc-interp">Resolved</span></div>
+                <div style="font-family: var(--font-mono); font-size: 24px; line-height: 1.2;"><span class="sc-interp">9</span></div>
+                <div style="font-size: 11.5px; color: var(--muted-foreground);"><span class="sc-interp">sites after merging</span></div>
+              </div>
+            
+              <div style="border-top: 3px solid oklch(0.62 0.22 250); padding-top: 8px;">
+                <div style="font-size: 12.5px; font-weight: 500; color: var(--muted-foreground);"><span class="sc-interp">Enriched</span></div>
+                <div style="font-family: var(--font-mono); font-size: 24px; line-height: 1.2;"><span class="sc-interp">8</span></div>
+                <div style="font-size: 11.5px; color: var(--muted-foreground);"><span class="sc-interp">in search area</span></div>
+              </div>
+            
+              <div style="border-top: 3px solid oklch(0.6 0.13 75); padding-top: 8px;">
+                <div style="font-size: 12.5px; font-weight: 500; color: var(--muted-foreground);"><span class="sc-interp">Verifying</span></div>
+                <div style="font-family: var(--font-mono); font-size: 24px; line-height: 1.2;"><span class="sc-interp">2</span></div>
+                <div style="font-size: 11.5px; color: var(--muted-foreground);"><span class="sc-interp">waiting on email</span></div>
+              </div>
+            
+              <div style="border-top: 3px solid oklch(0.5 0.12 155); padding-top: 8px;">
+                <div style="font-size: 12.5px; font-weight: 500; color: var(--muted-foreground);"><span class="sc-interp">Scored</span></div>
+                <div style="font-family: var(--font-mono); font-size: 24px; line-height: 1.2;"><span class="sc-interp">3</span></div>
+                <div style="font-size: 11.5px; color: var(--muted-foreground);"><span class="sc-interp">viable, ranked</span></div>
+              </div>
+            
+              <div style="border-top: 3px solid oklch(0.5 0.16 25); padding-top: 8px;">
+                <div style="font-size: 12.5px; font-weight: 500; color: var(--muted-foreground);"><span class="sc-interp">Excluded</span></div>
+                <div style="font-family: var(--font-mono); font-size: 24px; line-height: 1.2;"><span class="sc-interp">4</span></div>
+                <div style="font-size: 11.5px; color: var(--muted-foreground);"><span class="sc-interp">1 outside area, 3 failed a gate</span></div>
+              </div>
+            
+          </div>
+        </div>
+        <div style="background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-2xl); box-shadow: var(--shadow-sm); overflow: hidden;">
+          <div style="display: grid; grid-template-columns: 96px 1fr 96px 200px 110px; gap: 12px; padding: 10px 18px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-foreground);">
+            <span>Parcel</span><span>Site</span><span>Stage</span><span>Gates</span><span style="text-align: right;">Outcome</span>
+          </div>
+          
+            <div style="display: grid; grid-template-columns: 96px 1fr 96px 200px 110px; gap: 12px; padding: 9px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px; background: transparent;">
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--muted-foreground);"><span class="sc-interp">PITT-0001</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">2400 S Memorial Dr, Greenville</span></div><div style="font-size: 11.5px; color: var(--muted-foreground);"><span class="sc-interp">3 listings · 6 min</span></div></div>
+              <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px;"><span style="width: 8px; height: 8px; border-radius: 2px; background: oklch(0.5 0.12 155);"></span><span class="sc-interp">Scored</span></span>
+              <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Zoning</span> <span class="sc-interp">pass</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Rent</span> <span class="sc-interp">pass</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Flood</span> <span class="sc-interp">pass</span></span>
+                
+                
+              </div>
+              <span style="text-align: right; font-size: 12.5px; color: var(--foreground); font-weight: 500;"><span class="sc-interp">Rank 1, score 84</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 96px 1fr 96px 200px 110px; gap: 12px; padding: 9px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px; background: transparent;">
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--muted-foreground);"><span class="sc-interp">PITT-0002</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">3100 E 10th St, Greenville</span></div><div style="font-size: 11.5px; color: var(--muted-foreground);"><span class="sc-interp">1 listing · 9 min · 2 cases answered</span></div></div>
+              <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px;"><span style="width: 8px; height: 8px; border-radius: 2px; background: oklch(0.5 0.12 155);"></span><span class="sc-interp">Scored</span></span>
+              <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Zoning</span> <span class="sc-interp">pass</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Rent</span> <span class="sc-interp">pass</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Flood</span> <span class="sc-interp">pass</span></span>
+                
+                
+              </div>
+              <span style="text-align: right; font-size: 12.5px; color: var(--foreground); font-weight: 500;"><span class="sc-interp">Rank 2, score 71</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 96px 1fr 96px 200px 110px; gap: 12px; padding: 9px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px; background: transparent;">
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--muted-foreground);"><span class="sc-interp">PITT-0006</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">1800 Dickinson Ave, Greenville</span></div><div style="font-size: 11.5px; color: var(--muted-foreground);"><span class="sc-interp">1 listing · 5 min · shared lot</span></div></div>
+              <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px;"><span style="width: 8px; height: 8px; border-radius: 2px; background: oklch(0.5 0.12 155);"></span><span class="sc-interp">Scored</span></span>
+              <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Zoning</span> <span class="sc-interp">pass</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Rent</span> <span class="sc-interp">pass</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Flood</span> <span class="sc-interp">pass</span></span>
+                
+                
+              </div>
+              <span style="text-align: right; font-size: 12.5px; color: var(--muted-foreground); font-weight: 500;"><span class="sc-interp">Rank 3, ranks last</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 96px 1fr 96px 200px 110px; gap: 12px; padding: 9px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px; background: transparent;">
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--muted-foreground);"><span class="sc-interp">PITT-0008</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">700 W 5th St, Ayden</span></div><div style="font-size: 11.5px; color: var(--muted-foreground);"><span class="sc-interp">1 listing · 18 min · 1 case open</span></div></div>
+              <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px;"><span style="width: 8px; height: 8px; border-radius: 2px; background: oklch(0.6 0.13 75);"></span><span class="sc-interp">Verifying</span></span>
+              <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--wait-border); color: var(--wait); background: var(--wait-bg);"><span class="sc-interp">Zoning</span> <span class="sc-interp">pending</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Rent</span> <span class="sc-interp">pass</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Flood</span> <span class="sc-interp">pass</span></span>
+                
+                
+              </div>
+              <span style="text-align: right; font-size: 12.5px; color: var(--wait); font-weight: 500;"><span class="sc-interp">One answer away</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 96px 1fr 96px 200px 110px; gap: 12px; padding: 9px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px; background: transparent;">
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--muted-foreground);"><span class="sc-interp">PITT-0011</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">3400 Charles Blvd, Greenville</span></div><div style="font-size: 11.5px; color: var(--muted-foreground);"><span class="sc-interp">2 listings · 8 min · 1 case open</span></div></div>
+              <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px;"><span style="width: 8px; height: 8px; border-radius: 2px; background: oklch(0.6 0.13 75);"></span><span class="sc-interp">Verifying</span></span>
+              <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Zoning</span> <span class="sc-interp">pass</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--wait-border); color: var(--wait); background: var(--wait-bg);"><span class="sc-interp">Rent</span> <span class="sc-interp">pending</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Flood</span> <span class="sc-interp">pass</span></span>
+                
+                
+              </div>
+              <span style="text-align: right; font-size: 12.5px; color: var(--wait); font-weight: 500;"><span class="sc-interp">One answer away</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 96px 1fr 96px 200px 110px; gap: 12px; padding: 9px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px; background: transparent;">
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--muted-foreground);"><span class="sc-interp">PITT-0003</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">1500 N Greene St, Greenville</span></div><div style="font-size: 11.5px; color: var(--muted-foreground);"><span class="sc-interp">1 listing · 7 min</span></div></div>
+              <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px;"><span style="width: 8px; height: 8px; border-radius: 2px; background: oklch(0.5 0.16 25);"></span><span class="sc-interp">Excluded</span></span>
+              <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Zoning</span> <span class="sc-interp">pass</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid oklch(0.5 0.16 25 / 0.35); color: var(--destructive); background: oklch(0.5 0.16 25 / 0.08);"><span class="sc-interp">Rent</span> <span class="sc-interp">fail</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Flood</span> <span class="sc-interp">pass</span></span>
+                
+                
+              </div>
+              <span style="text-align: right; font-size: 12.5px; color: var(--destructive); font-weight: 500;"><span class="sc-interp">Rent $1,400 over budget</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 96px 1fr 96px 200px 110px; gap: 12px; padding: 9px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px; background: transparent;">
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--muted-foreground);"><span class="sc-interp">BEAU-0004</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">210 W Main St, Washington</span></div><div style="font-size: 11.5px; color: var(--muted-foreground);"><span class="sc-interp">1 listing · 34 min</span></div></div>
+              <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px;"><span style="width: 8px; height: 8px; border-radius: 2px; background: oklch(0.5 0.16 25);"></span><span class="sc-interp">Excluded</span></span>
+              <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid oklch(0.5 0.16 25 / 0.35); color: var(--destructive); background: oklch(0.5 0.16 25 / 0.08);"><span class="sc-interp">Zoning</span> <span class="sc-interp">fail</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Rent</span> <span class="sc-interp">pass</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Flood</span> <span class="sc-interp">pass</span></span>
+                
+                
+              </div>
+              <span style="text-align: right; font-size: 12.5px; color: var(--destructive); font-weight: 500;"><span class="sc-interp">B-1 does not permit dealer</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 96px 1fr 96px 200px 110px; gap: 12px; padding: 9px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px; background: transparent;">
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--muted-foreground);"><span class="sc-interp">PITT-0005</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">4020 NC 33 E, Grimesland</span></div><div style="font-size: 11.5px; color: var(--muted-foreground);"><span class="sc-interp">1 listing · 16 min</span></div></div>
+              <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px;"><span style="width: 8px; height: 8px; border-radius: 2px; background: oklch(0.5 0.16 25);"></span><span class="sc-interp">Excluded</span></span>
+              <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Zoning</span> <span class="sc-interp">pass</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);"><span class="sc-interp">Rent</span> <span class="sc-interp">pass</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; gap: 4px; padding: 0px 6px; border-radius: 999px; font-size: 10.5px; font-weight: 500; border: 1px solid oklch(0.5 0.16 25 / 0.35); color: var(--destructive); background: oklch(0.5 0.16 25 / 0.08);"><span class="sc-interp">Flood</span> <span class="sc-interp">fail</span></span>
+                
+                
+              </div>
+              <span style="text-align: right; font-size: 12.5px; color: var(--destructive); font-weight: 500;"><span class="sc-interp">Flood zone AE</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 96px 1fr 96px 200px 110px; gap: 12px; padding: 9px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px; background: transparent;">
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--muted-foreground);"><span class="sc-interp">WAYN-0007</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">900 Wayne Memorial Dr, Goldsboro</span></div><div style="font-size: 11.5px; color: var(--muted-foreground);"><span class="sc-interp">1 listing · 71 min</span></div></div>
+              <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px;"><span style="width: 8px; height: 8px; border-radius: 2px; background: oklch(0.5 0.16 25);"></span><span class="sc-interp">Excluded</span></span>
+              <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                
+                <span style="font-size: 12px; color: var(--muted-foreground);">Not checked</span>
+              </div>
+              <span style="text-align: right; font-size: 12.5px; color: var(--destructive); font-weight: 500;"><span class="sc-interp">Outside 60 min</span></span>
+            </div>
+          
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; min-width: 0px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <div style="font-weight: 600; font-size: 15px;">Open cases</div>
+          <span style="font-size: 12.5px; color: var(--muted-foreground);">Silence is not approval. Follow-ups are automatic.</span>
+        </div>
+        <div style="background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-2xl); box-shadow: var(--shadow-sm); overflow: hidden;">
+          
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 12px 18px; border-top: 1px solid var(--border); align-items: start;">
+              <div style="min-width: 0px;">
+                <div style="font-weight: 500; font-size: 13px;"><span class="sc-interp">700 W 5th St, Ayden</span> · <span class="sc-interp">zoning</span></div>
+                <div style="font-size: 12px; color: var(--muted-foreground); margin-top: 2px;">To <span class="sc-interp">planning@aydennc.gov</span></div>
+                <div style="font-size: 12px; color: var(--muted-foreground);">Opened <span class="sc-interp">Sep 14</span> · <span style="font-family: var(--font-mono); color: var(--foreground);"><span class="sc-interp">2 d</span></span> · <span class="sc-interp">1 email sent</span></div>
+                <div style="font-size: 12px; margin-top: 4px;">Next: <span class="sc-interp">follow-up Sep 18, then Sep 22; case closes unanswered Sep 28</span></div>
+              </div>
+              <span style="display: inline-flex; align-items: center; gap: 4px; padding: 1px 7px; border-radius: 999px; font-size: 11px; font-weight: 500; border: 1px solid var(--wait-border); color: var(--wait); background: var(--wait-bg); white-space: nowrap;"><span class="sc-interp">Awaiting reply</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 12px 18px; border-top: 1px solid var(--border); align-items: start;">
+              <div style="min-width: 0px;">
+                <div style="font-weight: 500; font-size: 13px;"><span class="sc-interp">3400 Charles Blvd</span> · <span class="sc-interp">rent quote</span></div>
+                <div style="font-size: 12px; color: var(--muted-foreground); margin-top: 2px;">To <span class="sc-interp">leasing@charlesblvd.test</span></div>
+                <div style="font-size: 12px; color: var(--muted-foreground);">Opened <span class="sc-interp">Sep 11</span> · <span style="font-family: var(--font-mono); color: var(--foreground);"><span class="sc-interp">5 d</span></span> · <span class="sc-interp">3 emails sent</span></div>
+                <div style="font-size: 12px; margin-top: 4px;">Next: <span class="sc-interp">last follow-up Sep 19; site excluded if no written quote by Sep 25</span></div>
+              </div>
+              <span style="display: inline-flex; align-items: center; gap: 4px; padding: 1px 7px; border-radius: 999px; font-size: 11px; font-weight: 500; border: 1px solid var(--wait-border); color: var(--wait); background: var(--wait-bg); white-space: nowrap;"><span class="sc-interp">Awaiting reply</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 12px 18px; border-top: 1px solid var(--border); align-items: start;">
+              <div style="min-width: 0px;">
+                <div style="font-weight: 500; font-size: 13px;"><span class="sc-interp">3100 E 10th St</span> · <span class="sc-interp">rent quote</span></div>
+                <div style="font-size: 12px; color: var(--muted-foreground); margin-top: 2px;">To <span class="sc-interp">owner@tenth-street-props.test</span></div>
+                <div style="font-size: 12px; color: var(--muted-foreground);">Opened <span class="sc-interp">Sep 15</span> · <span style="font-family: var(--font-mono); color: var(--foreground);"><span class="sc-interp">1 d</span></span> · <span class="sc-interp">1 email, reply Sep 16 14:02</span></div>
+                <div style="font-size: 12px; margin-top: 4px;">Next: <span class="sc-interp">none, quote $850/mo recorded</span></div>
+              </div>
+              <span style="display: inline-flex; align-items: center; gap: 4px; padding: 1px 7px; border-radius: 999px; font-size: 11px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg); white-space: nowrap;"><span class="sc-interp">Answered</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 12px 18px; border-top: 1px solid var(--border); align-items: start;">
+              <div style="min-width: 0px;">
+                <div style="font-weight: 500; font-size: 13px;"><span class="sc-interp">3100 E 10th St</span> · <span class="sc-interp">zoning</span></div>
+                <div style="font-size: 12px; color: var(--muted-foreground); margin-top: 2px;">To <span class="sc-interp">planning@greenvillenc.gov</span></div>
+                <div style="font-size: 12px; color: var(--muted-foreground);">Opened <span class="sc-interp">Sep 15</span> · <span style="font-family: var(--font-mono); color: var(--foreground);"><span class="sc-interp">1 d</span></span> · <span class="sc-interp">1 email, reply Sep 16 15:30</span></div>
+                <div style="font-size: 12px; margin-top: 4px;">Next: <span class="sc-interp">none, CH permits used vehicle sales</span></div>
+              </div>
+              <span style="display: inline-flex; align-items: center; gap: 4px; padding: 1px 7px; border-radius: 999px; font-size: 11px; font-weight: 500; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg); white-space: nowrap;"><span class="sc-interp">Answered</span></span>
+            </div>
+          
+        </div>
+        <div style="font-weight: 600; font-size: 15px; margin-top: 8px;">Emails sent today</div>
+        <div style="background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-2xl); box-shadow: var(--shadow-sm); overflow: hidden;">
+          
+            <div style="display: grid; grid-template-columns: 52px 1fr; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); font-size: 12.5px;">
+              <span style="font-family: var(--font-mono); color: var(--muted-foreground);"><span class="sc-interp">06:02</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">Permitted use inquiry, 700 W 5th St, Ayden</span></div><div style="color: var(--muted-foreground);">To <span class="sc-interp">planning@aydennc.gov</span> · <span class="sc-interp">new case</span></div></div>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 52px 1fr; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); font-size: 12.5px;">
+              <span style="font-family: var(--font-mono); color: var(--muted-foreground);"><span class="sc-interp">06:02</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">Lease inquiry, follow-up 3 of 3, 3400 Charles Blvd</span></div><div style="color: var(--muted-foreground);">To <span class="sc-interp">leasing@charlesblvd.test</span> · <span class="sc-interp">follow-up</span></div></div>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 52px 1fr; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); font-size: 12.5px;">
+              <span style="font-family: var(--font-mono); color: var(--muted-foreground);"><span class="sc-interp">06:03</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">Thank you, 3100 E 10th St quote received</span></div><div style="color: var(--muted-foreground);">To <span class="sc-interp">owner@tenth-street-props.test</span> · <span class="sc-interp">close-out</span></div></div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

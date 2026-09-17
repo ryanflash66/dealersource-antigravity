@@ -3,85 +3,213 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>dealersource Config</title>
-<meta name="description" content="Static design template page for the dealersource dashboard: Config. Sample data only.">
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<title>dealersource Configuration</title>
+<meta name="description" content="Static design template page for the dealersource dashboard: 3j Configuration, light , read-only. Sample data only.">
 <link rel="stylesheet" href="../tokens.css">
 <link rel="stylesheet" href="../dashboard.css">
 </head>
 <body>
-<div class="ds-root" style="min-height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; background: var(--bg); color: var(--fg);">
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-  <!-- dealersource icon sprite. 24px grid, stroke 1.75, currentColor.
-       Inline this whole file at the top of <body>, then use
-       <svg class="i"><use href="#i-check"/></svg>. -->
-  <defs>
-    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
-    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
-    <symbol id="i-stale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M6 18L18 6"/></symbol>
-    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5L2.5 20h19L12 3.5z"/><path d="M12 9.5v4.5M12 17.2v.3"/></symbol>
-    <symbol id="i-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M10 9v6M14 9v6"/></symbol>
-    <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13.5V19a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5.5"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.7-6.5-11a6.5 6.5 0 0 1 13 0c0 5.3-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.25"/></symbol>
-    <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-4l2.2-5.2A1.5 1.5 0 0 1 7.6 6h8.8a1.5 1.5 0 0 1 1.4.8L20 12v4"/><path d="M3 12h18"/><circle cx="7.5" cy="16.5" r="1.75"/><circle cx="16.5" cy="16.5" r="1.75"/></symbol>
-    <symbol id="i-shared" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M12 5.5v13"/><path d="M7 12h2M15 12h2"/></symbol>
-    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></symbol>
-    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
-    <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10l5 5 5-5"/></symbol>
-    <symbol id="i-sort" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5v14M8 19l-3-3M8 19l3-3"/><path d="M16 19V5M16 5l-3 3M16 5l3 3"/></symbol>
-    <symbol id="i-sort-desc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M12 19l-4-4M12 19l4-4"/></symbol>
-    <symbol id="i-sort-asc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M12 5L8 9M12 5l4 4"/></symbol>
-    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M4 7l8 6 8-6"/></symbol>
-    <symbol id="i-layer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l8 4.5-8 4.5-8-4.5L12 4z"/><path d="M4 13l8 4.5 8-4.5"/></symbol>
-    <symbol id="i-listing" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="3.5" width="15" height="17" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
-    <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="1.5"/><circle cx="9" cy="9.5" r="1.5"/><path d="M20 15l-4.5-4.5L8 18"/></symbol>
-    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8v.3"/></symbol>
-    <symbol id="i-ban" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></symbol>
-    <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-14.2 5M4 12a8 8 0 0 1 14.2-5"/><path d="M18 4v3.5h-3.5M6 20v-3.5h3.5"/></symbol>
-    <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7"/><path d="M6 10v9.5h12V10"/></symbol>
-    <symbol id="i-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5s6 6.4 6 10.5a6 6 0 0 1-12 0c0-4.1 6-10.5 6-10.5z"/></symbol>
-    <symbol id="i-dollar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v17"/><path d="M16 7.5H10a2.5 2.5 0 0 0 0 5h4a2.5 2.5 0 0 1 0 5H8"/></symbol>
-    <symbol id="i-zoning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11"/><path d="M4 20h16M9 20v-5h6v5"/></symbol>
-    <symbol id="i-external-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h10v10M19 5L5 19"/></symbol>
-    <symbol id="i-git" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="8" r="2"/><path d="M6 7v10M18 10c0 4-6 3-9 6"/></symbol>
-  </defs>
-</svg>
-
-<header class="topbar"><a class="brand" href="Main.dc.html"><span class="brand-mark" aria-hidden="true"></span>dealersource</a><div class="run-status"><span class="dot dot-paused" aria-hidden="true"></span><span>Last run <span class="mono">2026-09-16 09:52</span> · Paused</span></div><nav aria-label="Views"><ul class="nav"><li><a href="Main.dc.html">Shortlist</a></li><li><a href="Pipeline.dc.html">Pipeline</a></li><li><a href="Exceptions.dc.html">Exceptions<span class="count is-alert">2</span></a></li><li><a href="Config.dc.html" aria-current="page">Config</a></li></ul></nav><button class="theme-toggle" type="button" aria-label="Toggle light or dark theme"><svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg></button></header><div class="paused-strip" role="status"><svg class="i i-16" aria-hidden="true"><use href="#i-pause"/></svg><span>Sending paused since <span class="mono">2026-09-16 09:48</span>: Email bounces: 3 consecutive hard bounces.</span><a href="Exceptions.dc.html">See exceptions</a></div>
-<main class="page" id="main">
-  <div class="page-head"><h1>Config</h1><span class="sub">read-only · from report.json providers and run · edit in the repo, not here</span></div>
-  <section aria-labelledby="h-biz">
-    <div class="section-head"><h2 id="h-biz">Business parameters</h2></div>
-    <dl class="kv"><div><dt>Home base</dt><dd>1005 Dickinson Ave, Greenville, NC 27834<span class="sub">35.6046, -77.3797</span></dd></div><div><dt>Max drive time</dt><dd>40 min<span class="sub">from home base, OSRM</span></dd></div><div><dt>Rent range</dt><dd>$600 – $1,000 / mo<span class="sub">written quote required</span></dd></div><div><dt>Shared-lot policy</dt><dd>allowed<span class="sub">allowed, ranked after all standalone sites</span></dd></div><div><dt>Flood zones excluded</dt><dd>A, AE, AH, AO, V, VE<span class="sub">FEMA NFHL high-risk</span></dd></div><div><dt>Search area</dt><dd>6 counties<span class="sub">Pitt, Lenoir, Beaufort, Greene, Edgecombe, Wayne counties</span></dd></div></dl>
-  </section>
-  <section class="section" aria-labelledby="h-prov">
-    <div class="section-head"><h2 id="h-prov">Providers</h2><span class="paid-indicator paid-off"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Paid providers: off</span><span class="sub">default configuration uses free data only</span></div>
-    <div class="table-wrap"><table class="table stack">
-      <thead><tr><th scope="col">Layer</th><th scope="col">Selected provider</th><th scope="col">Cost</th><th scope="col">Enabled</th><th scope="col">Paid alternative</th></tr></thead>
-      <tbody><tr><td data-label="Layer" class="mono">geocoder</td><td data-label="Selected provider"><span class="addr">Nominatim (OpenStreetMap)</span></td><td data-label="Cost"><span class="cost cost-free">free</span></td><td data-label="Enabled"><span class="onoff onoff-on"><span class="sw"></span>on</span></td><td data-label="Paid alternative"><span class="muted">Google Geocoding</span> <span class="onoff onoff-off"><span class="sw"></span>off</span></td></tr><tr><td data-label="Layer" class="mono">parcels</td><td data-label="Selected provider"><span class="addr">NC OneMap parcels (state GIS)</span></td><td data-label="Cost"><span class="cost cost-free">free</span></td><td data-label="Enabled"><span class="onoff onoff-on"><span class="sw"></span>on</span></td><td data-label="Paid alternative"><span class="muted">Regrid</span> <span class="onoff onoff-off"><span class="sw"></span>off</span></td></tr><tr><td data-label="Layer" class="mono">drivetime</td><td data-label="Selected provider"><span class="addr">OSRM public router</span></td><td data-label="Cost"><span class="cost cost-free">free</span></td><td data-label="Enabled"><span class="onoff onoff-on"><span class="sw"></span>on</span></td><td data-label="Paid alternative"><span class="muted">Mapbox Directions</span> <span class="onoff onoff-off"><span class="sw"></span>off</span></td></tr><tr><td data-label="Layer" class="mono">imagery</td><td data-label="Selected provider"><span class="addr">USGS NAIP (aerials)</span></td><td data-label="Cost"><span class="cost cost-free">free</span></td><td data-label="Enabled"><span class="onoff onoff-on"><span class="sw"></span>on</span></td><td data-label="Paid alternative"><span class="muted">Nearmap</span> <span class="onoff onoff-off"><span class="sw"></span>off</span></td></tr><tr><td data-label="Layer" class="mono">poi</td><td data-label="Selected provider"><span class="addr">OpenStreetMap Overpass</span></td><td data-label="Cost"><span class="cost cost-free">free</span></td><td data-label="Enabled"><span class="onoff onoff-on"><span class="sw"></span>on</span></td><td data-label="Paid alternative"><span class="muted">Google Places</span> <span class="onoff onoff-off"><span class="sw"></span>off</span></td></tr><tr><td data-label="Layer" class="mono">crawler</td><td data-label="Selected provider"><span class="addr">built-in fetcher, robots.txt honoured</span></td><td data-label="Cost"><span class="cost cost-free">free</span></td><td data-label="Enabled"><span class="onoff onoff-on"><span class="sw"></span>on</span></td><td data-label="Paid alternative"><span class="muted">ScrapingBee</span> <span class="onoff onoff-off"><span class="sw"></span>off</span></td></tr><tr><td data-label="Layer" class="mono">tiles</td><td data-label="Selected provider"><span class="addr">OpenStreetMap raster tiles</span></td><td data-label="Cost"><span class="cost cost-free">free</span></td><td data-label="Enabled"><span class="onoff onoff-on"><span class="sw"></span>on</span></td><td data-label="Paid alternative"><span class="muted">Mapbox Streets</span> <span class="onoff onoff-off"><span class="sw"></span>off</span></td></tr></tbody>
-    </table></div>
-  </section>
-  <section class="section" aria-labelledby="h-run">
-    <div class="section-head"><h2 id="h-run">Last run</h2><span class="sub mono">run_20260916_0941</span></div>
-    <div class="run-summary">
-      <div><div class="k">Started</div><div class="v">2026-09-16 09:41</div></div>
-      <div><div class="k">Finished</div><div class="v">2026-09-16 09:52</div></div>
-      <div><div class="k">Duration</div><div class="v">11 min 46 s</div></div>
-      <div><div class="k">Offline</div><div class="v">no</div></div>
-      <div><div class="k">Sites</div><div class="v">143</div></div>
-      <div><div class="k">Viable</div><div class="v">8</div></div>
-      <div><div class="k">Evidence fetched</div><div class="v">212</div></div>
-      <div><div class="k">External calls</div><div class="v">388</div></div>
-      <div><div class="k">Cases open</div><div class="v">9</div></div>
-      <div><div class="k">Messages sent</div><div class="v">4</div></div>
-      <div><div class="k">Errors</div><div class="v">2</div></div>
-      <div><div class="k">Status</div><div class="v"><span class="dot dot-paused" style="display:inline-block;vertical-align:-1px;margin-right:6px"></span>paused</div></div>
-      <div class="errs"><div class="k">run.errors[]</div><ul><li>smtp: 3 consecutive hard bounces to planning@tarboro-nc.example; sending paused at 09:48:11</li><li>overpass: HTTP 429 quota exceeded on poi layer (2 of 31 sites left un-enriched)</li></ul></div>
+<div class="dv-card app " style="width: 1440px; height: 900px; display: grid; grid-template-rows: 56px 1fr;">
+    <div class="sc-host" data-sc-name="DsHeader"><header style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 56px; box-sizing: border-box; padding: 0px 24px; border-bottom: 1px solid var(--border); background: color-mix(in oklab, var(--background) 88%, transparent); color: var(--foreground); font-family: var(--font-sans); font-size: 14px;">
+  <div style="display: flex; align-items: center; gap: 14px;">
+    <div class="sc-host-x" style="display: contents;"><span aria-hidden="true" style="display: inline-grid; grid-template-columns: repeat(3, 2px); gap: 2px;"><span style="width: 2px; height: 2px; border-radius: 50%; background: oklch(0.52 0.26 255);"></span><span style="width: 2px; height: 2px; border-radius: 50%; background: color-mix(in oklch, var(--foreground) 16%, transparent);"></span><span style="width: 2px; height: 2px; border-radius: 50%; background: color-mix(in oklch, var(--foreground) 16%, transparent);"></span><span style="width: 2px; height: 2px; border-radius: 50%; background: oklch(0.57 0.25 245);"></span><span style="width: 2px; height: 2px; border-radius: 50%; background: color-mix(in oklch, var(--foreground) 16%, transparent);"></span><span style="width: 2px; height: 2px; border-radius: 50%; background: color-mix(in oklch, var(--foreground) 16%, transparent);"></span><span style="width: 2px; height: 2px; border-radius: 50%; background: oklch(0.62 0.23 232);"></span><span style="width: 2px; height: 2px; border-radius: 50%; background: oklch(0.67 0.2 218);"></span><span style="width: 2px; height: 2px; border-radius: 50%; background: oklch(0.72 0.18 205);"></span></span></div>
+    <span style="font-weight: 600; letter-spacing: -0.01em;">dealersource</span>
+    <span style="font-family: var(--font-mono); font-size: 11px; color: var(--muted-foreground); padding: 2px 8px; border: 1px solid var(--border); border-radius: 999px; white-space: nowrap;">Report 2026-09-16</span>
+  </div>
+  <nav style="display: flex; gap: 2px; padding: 3px; border: 1px solid var(--border); border-radius: 999px; background: color-mix(in oklab, var(--card) 70%, transparent);">
+    
+      <span style="position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; font-size: 13px; white-space: nowrap; background: transparent; color: var(--muted-foreground); font-weight: 400;"><span class="sc-interp">Shortlist</span></span>
+    
+      <span style="position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; font-size: 13px; white-space: nowrap; background: transparent; color: var(--muted-foreground); font-weight: 400;"><span class="sc-interp">Pipeline</span></span>
+    
+      <span style="position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; font-size: 13px; white-space: nowrap; background: transparent; color: var(--muted-foreground); font-weight: 400;"><span class="sc-interp">Exceptions</span></span>
+    
+      <span style="position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; font-size: 13px; white-space: nowrap; background: var(--wash-primary); color: var(--nav-active, var(--primary-hover)); font-weight: 600;"><span class="sc-interp">Configuration</span><span style="position: absolute; top: -4px; left: 50%; transform: translateX(-50%); width: 20px; height: 2px; border-radius: 2px; background: var(--primary);"></span></span>
+    
+  </nav>
+  <div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; font-size: 13px; color: var(--muted-foreground);">
+    <span style="display: inline-flex; align-items: center; gap: 6px; color: oklch(0.45 0.12 155); font-weight: 500;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Running</span>
+    
+    <span style="white-space: nowrap;">Last run 06:00 ET</span>
+  </div></header></div>
+    <div style="overflow: hidden; padding: 24px 24px 0px; display: grid; grid-template-columns: 440px 1fr; gap: 24px; min-height: 0px;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div>
+          <h1 style="margin: 0px 0px 4px; font-size: 20px; font-weight: 600; letter-spacing: -0.02em;">What the search is looking for</h1>
+          <div style="font-size: 12.5px; color: var(--muted-foreground);">Set in config.yaml. Changes take effect on the next run. Nothing here is editable from the dashboard.</div>
+        </div>
+        <div style="background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-2xl); box-shadow: var(--shadow-sm); overflow: hidden;">
+          
+            <div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 11px 18px; border-top: 1px solid var(--border); font-size: 13px; align-items: start;">
+              <span style="color: var(--muted-foreground);"><span class="sc-interp">Home base</span></span>
+              <div><div style="font-weight: 500;"><span class="sc-interp">Greenville, NC 27858</span></div><div style="font-size: 12px; color: var(--muted-foreground); margin-top: 1px;"><span class="sc-interp">Drive times are measured from here</span></div></div>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 11px 18px; border-top: 1px solid var(--border); font-size: 13px; align-items: start;">
+              <span style="color: var(--muted-foreground);"><span class="sc-interp">Maximum drive</span></span>
+              <div><div style="font-weight: 500;"><span class="sc-interp">60 minutes</span></div><div style="font-size: 12px; color: var(--muted-foreground); margin-top: 1px;"><span class="sc-interp">Sites beyond this are excluded before any gate runs</span></div></div>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 11px 18px; border-top: 1px solid var(--border); font-size: 13px; align-items: start;">
+              <span style="color: var(--muted-foreground);"><span class="sc-interp">Rent range</span></span>
+              <div><div style="font-weight: 500;"><span class="sc-interp">$600 to $1,000 a month</span></div><div style="font-size: 12px; color: var(--muted-foreground); margin-top: 1px;"><span class="sc-interp">Written quote required; listing prices do not pass the gate</span></div></div>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 11px 18px; border-top: 1px solid var(--border); font-size: 13px; align-items: start;">
+              <span style="color: var(--muted-foreground);"><span class="sc-interp">Shared lots</span></span>
+              <div><div style="font-weight: 500;"><span class="sc-interp">Last resort</span></div><div style="font-size: 12px; color: var(--muted-foreground); margin-top: 1px;"><span class="sc-interp">Space on another business is checked but always ranks below standalone sites</span></div></div>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 11px 18px; border-top: 1px solid var(--border); font-size: 13px; align-items: start;">
+              <span style="color: var(--muted-foreground);"><span class="sc-interp">Flood zones</span></span>
+              <div><div style="font-weight: 500;"><span class="sc-interp">A, AE, AH, AO, VE excluded</span></div><div style="font-size: 12px; color: var(--muted-foreground); margin-top: 1px;"><span class="sc-interp">Zones X and shaded X pass</span></div></div>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 11px 18px; border-top: 1px solid var(--border); font-size: 13px; align-items: start;">
+              <span style="color: var(--muted-foreground);"><span class="sc-interp">Follow-ups</span></span>
+              <div><div style="font-weight: 500;"><span class="sc-interp">3 per case, 4 days apart</span></div><div style="font-size: 12px; color: var(--muted-foreground); margin-top: 1px;"><span class="sc-interp">Unanswered cases close after 14 days and the site is excluded</span></div></div>
+            </div>
+          
+        </div>
+        <div>
+          <div style="font-weight: 600; font-size: 15px; margin-bottom: 8px;">Last run</div>
+          <div style="background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-2xl); box-shadow: var(--shadow-sm); overflow: hidden;">
+            
+              <div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); font-size: 13px;">
+                <span style="color: var(--muted-foreground);"><span class="sc-interp">Started</span></span>
+                <span style="font-family: var(--font-mono); font-size: 12.5px;"><span class="sc-interp">2026-09-16 06:00:04 ET</span></span>
+              </div>
+            
+              <div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); font-size: 13px;">
+                <span style="color: var(--muted-foreground);"><span class="sc-interp">Duration</span></span>
+                <span style="font-family: var(--font-mono); font-size: 12.5px;"><span class="sc-interp">4m 12s</span></span>
+              </div>
+            
+              <div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); font-size: 13px;">
+                <span style="color: var(--muted-foreground);"><span class="sc-interp">Listings fetched</span></span>
+                <span style="font-family: var(--font-mono); font-size: 12.5px;"><span class="sc-interp">11 from 7 sources</span></span>
+              </div>
+            
+              <div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); font-size: 13px;">
+                <span style="color: var(--muted-foreground);"><span class="sc-interp">Emails sent</span></span>
+                <span style="font-family: var(--font-mono); font-size: 12.5px;"><span class="sc-interp">3 · 2 replies read</span></span>
+              </div>
+            
+              <div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); font-size: 13px;">
+                <span style="color: var(--muted-foreground);"><span class="sc-interp">Errors</span></span>
+                <span style="font-family: var(--font-mono); font-size: 12.5px;"><span class="sc-interp">0 · 2 provider warnings</span></span>
+              </div>
+            
+              <div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); font-size: 13px;">
+                <span style="color: var(--muted-foreground);"><span class="sc-interp">Report</span></span>
+                <span style="font-family: var(--font-mono); font-size: 12.5px;"><span class="sc-interp">reports/2026-09-16.json</span></span>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; min-width: 0px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <div style="font-weight: 600; font-size: 15px;">Data providers</div>
+          <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--muted-foreground);"><span style="font-size: 11px; font-weight: 500; padding: 0px 7px; border-radius: 999px; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg);">Free</span>All nine kinds run on free sources. No paid provider is on.</span>
+        </div>
+        <div style="background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-2xl); box-shadow: var(--shadow-sm); overflow: hidden;">
+          <div style="display: grid; grid-template-columns: 130px 1fr 1fr 70px 150px; gap: 12px; padding: 10px 18px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-foreground);">
+            <span>Kind</span><span>In use</span><span>Fallback</span><span>Cost</span><span style="text-align: right;">Status this run</span>
+          </div>
+          
+            <div style="display: grid; grid-template-columns: 130px 1fr 1fr 70px 150px; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px;">
+              <span style="color: var(--muted-foreground);"><span class="sc-interp">Geocoding</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500;"><span class="sc-interp">Census Geocoder</span></div><div style="font-size: 11.5px; color: var(--muted-foreground); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">US Census Bureau batch API</span></div></div>
+              <span style="font-size: 12.5px; color: var(--muted-foreground);"><span class="sc-interp">Nominatim (OSM)</span></span>
+              <span style="font-size: 11px; font-weight: 500; padding: 0px 7px; border-radius: 999px; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg); text-align: center;"><span class="sc-interp">Free</span></span>
+              <span style="display: inline-flex; justify-content: flex-end; align-items: center; gap: 4px; font-size: 12px; color: var(--wait); font-weight: 500; white-space: nowrap;"><span class="sc-interp">Fell back once</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 130px 1fr 1fr 70px 150px; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px;">
+              <span style="color: var(--muted-foreground);"><span class="sc-interp">Parcels</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500;"><span class="sc-interp">Pitt County GIS</span></div><div style="font-size: 11.5px; color: var(--muted-foreground); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">plus Beaufort, Wayne county parcel services</span></div></div>
+              <span style="font-size: 12.5px; color: var(--muted-foreground);"><span class="sc-interp">None</span></span>
+              <span style="font-size: 11px; font-weight: 500; padding: 0px 7px; border-radius: 999px; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg); text-align: center;"><span class="sc-interp">Free</span></span>
+              <span style="display: inline-flex; justify-content: flex-end; align-items: center; gap: 4px; font-size: 12px; color: var(--ok); font-weight: 500; white-space: nowrap;"><span class="sc-interp">OK</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 130px 1fr 1fr 70px 150px; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px;">
+              <span style="color: var(--muted-foreground);"><span class="sc-interp">Zoning</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500;"><span class="sc-interp">Town GIS layers</span></div><div style="font-size: 11.5px; color: var(--muted-foreground); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">Greenville, Ayden, Washington, Grimesland</span></div></div>
+              <span style="font-size: 12.5px; color: var(--muted-foreground);"><span class="sc-interp">Email to planning office</span></span>
+              <span style="font-size: 11px; font-weight: 500; padding: 0px 7px; border-radius: 999px; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg); text-align: center;"><span class="sc-interp">Free</span></span>
+              <span style="display: inline-flex; justify-content: flex-end; align-items: center; gap: 4px; font-size: 12px; color: var(--ok); font-weight: 500; white-space: nowrap;"><span class="sc-interp">OK</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 130px 1fr 1fr 70px 150px; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px;">
+              <span style="color: var(--muted-foreground);"><span class="sc-interp">Flood</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500;"><span class="sc-interp">FEMA NFHL</span></div><div style="font-size: 11.5px; color: var(--muted-foreground); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">National Flood Hazard Layer</span></div></div>
+              <span style="font-size: 12.5px; color: var(--muted-foreground);"><span class="sc-interp">None</span></span>
+              <span style="font-size: 11px; font-weight: 500; padding: 0px 7px; border-radius: 999px; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg); text-align: center;"><span class="sc-interp">Free</span></span>
+              <span style="display: inline-flex; justify-content: flex-end; align-items: center; gap: 4px; font-size: 12px; color: var(--ok); font-weight: 500; white-space: nowrap;"><span class="sc-interp">OK</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 130px 1fr 1fr 70px 150px; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px;">
+              <span style="color: var(--muted-foreground);"><span class="sc-interp">Traffic</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500;"><span class="sc-interp">NCDOT AADT</span></div><div style="font-size: 11.5px; color: var(--muted-foreground); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">Annual average daily traffic, 2024</span></div></div>
+              <span style="font-size: 12.5px; color: var(--muted-foreground);"><span class="sc-interp">None</span></span>
+              <span style="font-size: 11px; font-weight: 500; padding: 0px 7px; border-radius: 999px; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg); text-align: center;"><span class="sc-interp">Free</span></span>
+              <span style="display: inline-flex; justify-content: flex-end; align-items: center; gap: 4px; font-size: 12px; color: var(--ok); font-weight: 500; white-space: nowrap;"><span class="sc-interp">OK</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 130px 1fr 1fr 70px 150px; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px;">
+              <span style="color: var(--muted-foreground);"><span class="sc-interp">Drive time</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500;"><span class="sc-interp">OSRM public</span></div><div style="font-size: 11.5px; color: var(--muted-foreground); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">Open Source Routing Machine</span></div></div>
+              <span style="font-size: 12.5px; color: var(--muted-foreground);"><span class="sc-interp">Straight-line estimate</span></span>
+              <span style="font-size: 11px; font-weight: 500; padding: 0px 7px; border-radius: 999px; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg); text-align: center;"><span class="sc-interp">Free</span></span>
+              <span style="display: inline-flex; justify-content: flex-end; align-items: center; gap: 4px; font-size: 12px; color: var(--ok); font-weight: 500; white-space: nowrap;"><span class="sc-interp">OK</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 130px 1fr 1fr 70px 150px; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px;">
+              <span style="color: var(--muted-foreground);"><span class="sc-interp">Competitors</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500;"><span class="sc-interp">OpenStreetMap</span></div><div style="font-size: 11.5px; color: var(--muted-foreground); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">shop=car within 3 miles</span></div></div>
+              <span style="font-size: 12.5px; color: var(--muted-foreground);"><span class="sc-interp">None</span></span>
+              <span style="font-size: 11px; font-weight: 500; padding: 0px 7px; border-radius: 999px; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg); text-align: center;"><span class="sc-interp">Free</span></span>
+              <span style="display: inline-flex; justify-content: flex-end; align-items: center; gap: 4px; font-size: 12px; color: var(--ok); font-weight: 500; white-space: nowrap;"><span class="sc-interp">OK</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 130px 1fr 1fr 70px 150px; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px;">
+              <span style="color: var(--muted-foreground);"><span class="sc-interp">Listings</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500;"><span class="sc-interp">7 sources</span></div><div style="font-size: 11.5px; color: var(--muted-foreground); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">brokers, town ED pages, chamber, r/greenvillenc</span></div></div>
+              <span style="font-size: 12.5px; color: var(--muted-foreground);"><span class="sc-interp">None</span></span>
+              <span style="font-size: 11px; font-weight: 500; padding: 0px 7px; border-radius: 999px; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg); text-align: center;"><span class="sc-interp">Free</span></span>
+              <span style="display: inline-flex; justify-content: flex-end; align-items: center; gap: 4px; font-size: 12px; color: var(--ok); font-weight: 500; white-space: nowrap;"><span class="sc-interp">OK</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 130px 1fr 1fr 70px 150px; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px;">
+              <span style="color: var(--muted-foreground);"><span class="sc-interp">Email</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500;"><span class="sc-interp">Gmail API</span></div><div style="font-size: 11.5px; color: var(--muted-foreground); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">search@dealersource.test</span></div></div>
+              <span style="font-size: 12.5px; color: var(--muted-foreground);"><span class="sc-interp">None</span></span>
+              <span style="font-size: 11px; font-weight: 500; padding: 0px 7px; border-radius: 999px; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg); text-align: center;"><span class="sc-interp">Free</span></span>
+              <span style="display: inline-flex; justify-content: flex-end; align-items: center; gap: 4px; font-size: 12px; color: var(--ok); font-weight: 500; white-space: nowrap;"><span class="sc-interp">OK</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 130px 1fr 1fr 70px 150px; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px;">
+              <span style="color: var(--muted-foreground);"><span class="sc-interp">Street photos</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500;"><span class="sc-interp">Mapillary</span></div><div style="font-size: 11.5px; color: var(--muted-foreground); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">Nearest capture within 50 m</span></div></div>
+              <span style="font-size: 12.5px; color: var(--muted-foreground);"><span class="sc-interp">Google Street View Static (paid)</span></span>
+              <span style="font-size: 11px; font-weight: 500; padding: 0px 7px; border-radius: 999px; border: 1px solid var(--ok-border); color: var(--ok); background: var(--ok-bg); text-align: center;"><span class="sc-interp">Free</span></span>
+              <span style="display: inline-flex; justify-content: flex-end; align-items: center; gap: 4px; font-size: 12px; color: var(--ok); font-weight: 500; white-space: nowrap;"><span class="sc-interp">OK</span></span>
+            </div>
+          
+            <div style="display: grid; grid-template-columns: 130px 1fr 1fr 70px 150px; gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); align-items: center; font-size: 13px;">
+              <span style="color: var(--muted-foreground);"><span class="sc-interp">Paid providers</span></span>
+              <div style="min-width: 0px;"><div style="font-weight: 500;"><span class="sc-interp">None enabled</span></div><div style="font-size: 11.5px; color: var(--muted-foreground); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><span class="sc-interp">Google Street View Static, Regrid parcels available</span></div></div>
+              <span style="font-size: 12.5px; color: var(--muted-foreground);"><span class="sc-interp"></span></span>
+              <span style="font-size: 11px; font-weight: 500; padding: 0px 7px; border-radius: 999px; border: 1px solid var(--input); color: var(--muted-foreground); background: var(--muted); text-align: center;"><span class="sc-interp">Off</span></span>
+              <span style="display: inline-flex; justify-content: flex-end; align-items: center; gap: 4px; font-size: 12px; color: var(--muted-foreground); font-weight: 500; white-space: nowrap;"><span class="sc-interp">Off</span></span>
+            </div>
+          
+        </div>
+        <div style="font-size: 12px; color: var(--muted-foreground);">A paid provider, when switched on in config.yaml, shows here as "Paid" with its monthly cap and spend to date.</div>
+      </div>
     </div>
-  </section>
-</main>
-<footer class="footer"><a class="link-ext" href="https://github.com/ryanflash66/dealersource" target="_blank" rel="noopener"><svg class="i i-16" aria-hidden="true"><use href="#i-git"/></svg>ryanflash66/dealersource</a><span>report.json</span><span class="mono">run_20260916_0941</span></footer>
-</div>
+  </div>
 </body>
 </html>
